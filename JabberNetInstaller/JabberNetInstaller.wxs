@@ -29,11 +29,9 @@
             </Component>
           </Directory>
           <Directory Id="Examples" Name="Examples">
-            <Directory Id="Example" Name="Example" ShortName="Example">
+            <Directory Id="Example" Name="CSharp Example" ShortName="Example">
               <Component Id="Example" DiskId="1" Guid="15BF63E0-C499-4DDF-A19A-80B57BE80F3F">
-                <File Id="_2003_Example.csproj" Name="2003-Example.csproj" ShortName="2003-EX.CSP" Source="..\Example\2003-Example.csproj" />
                 <File Id="_2005_Example.csproj" Name="2005-Example.csproj" ShortName="2005-EX.CSP" Source="..\Example\2005-Example.csproj" />
-                <File Id="_2005_Example.csproj.user" Name="2005-Example.csproj.user" ShortName="2005-EX.USE" Source="..\Example\2005-Example.csproj.user" />
                 <File Id="AddContact.cs" Name="AddContact.cs" ShortName="ADDCONT.CS" Source="..\Example\AddContact.cs" />
                 <File Id="AddContact.resx" Name="AddContact.resx" ShortName="ADDCONT.RES" Source="..\Example\AddContact.resx" />
                 <File Id="AddGroup.cs" Name="AddGroup.cs" ShortName="ADDGROU.CS" Source="..\Example\AddGroup.cs" />
@@ -43,7 +41,6 @@
                 <File Id="ConferenceForm.cs" Name="ConferenceForm.cs" ShortName="CONFERE.CS" Source="..\Example\ConferenceForm.cs" />
                 <File Id="ConferenceForm.resx" Name="ConferenceForm.resx" ShortName="CONFERE.RES" Source="..\Example\ConferenceForm.resx" />
                 <File Id="Example.build" Name="Example.build" ShortName="EXAMPLE.BUI" Source="..\Example\Example.build" />
-                <File Id="Example.old.csproj" Name="Example.old.csproj" ShortName="EXAMPLE.CSP" Source="..\Example\Example.old.csproj" />
                 <File Id="HAMMER.ICO" Name="HAMMER.ICO" ShortName="HAMMER.ICO" Source="..\Example\HAMMER.ICO" />
                 <File Id="MainForm.cs" Name="MainForm.cs" ShortName="MAINFOR.CS" Source="..\Example\MainForm.cs" />
                 <File Id="MainForm.resx" Name="MainForm.resx" ShortName="MAINFOR.RES" Source="..\Example\MainForm.resx" />
@@ -55,11 +52,11 @@
                 <File Id="SendMessage.resx" Name="SendMessage.resx" ShortName="SENDMES.RES" Source="..\Example\SendMessage.resx" />
                 <File Id="ServiceDisplay.cs" Name="ServiceDisplay.cs" ShortName="SERVICE.CS" Source="..\Example\ServiceDisplay.cs" />
                 <File Id="ServiceDisplay.resx" Name="ServiceDisplay.resx" ShortName="SERVICE.RES" Source="..\Example\ServiceDisplay.resx" />
+                <File Id="Reference.targets" Name="Reference.targets" ShortName="REFEREN.TAR" Source="..\Example\InstallerTargets\Reference.targets" />
               </Component>
             </Directory>
             <Directory Id="VB.Example" Name="VB.Example" ShortName="VB_Exam">
               <Component Id="VB.Example" DiskId="1" Guid="4AE0A5F8-65FB-41B0-ABDE-E69576346889">
-                <File Id="_2003_VB.Example.vbproj" Name="2003-VB.Example.vbproj" ShortName="2003-VB.VBP" Source="..\VB.Example\2003-VB.Example.vbproj" />
                 <File Id="_2005_VB.Example.vbproj" Name="2005-VB.Example.vbproj" ShortName="2005-VB.VBP" Source="..\VB.Example\2005-VB.Example.vbproj" />
                 <File Id="AssemblyInfo.vb" Name="AssemblyInfo.vb" ShortName="ASSEMBL.VB" Source="..\VB.Example\AssemblyInfo.vb" />
                 <File Id="HAMMER.ICO_1" Name="HAMMER.ICO" ShortName="HAMMER.ICO" Source="..\VB.Example\HAMMER.ICO" />
@@ -68,19 +65,22 @@
                 <File Id="SendMessage.resx_1" Name="SendMessage.resx" ShortName="SENDMES.RES" Source="..\VB.Example\SendMessage.resx" />
                 <File Id="SendMessage.vb" Name="SendMessage.vb" ShortName="SENDMES.VB" Source="..\VB.Example\SendMessage.vb" />
                 <File Id="VB.Example.build" Name="VB.Example.build" ShortName="VB_EXAM.BUI" Source="..\VB.Example\VB.Example.build" />
-                <File Id="VB.Example.old.vbproj" Name="VB.Example.old.vbproj" ShortName="VB_EXAM.VBP" Source="..\VB.Example\VB.Example.old.vbproj" />
+                <File Id="Reference.targets_1" Name="Reference.targets" ShortName="REFEREN.TAR" Source="..\VB.Example\InstallerTargets\Reference.targets" />
               </Component>
             </Directory>
             <Directory Id="ConsoleClient" Name="ConsoleClient" ShortName="Console">
               <Component Id="ConsoleClient" DiskId="1" Guid="896C47A2-772D-4027-9709-2A89D76E9636">
-                <File Id="_2003_ConsoleClient.csproj" Name="2003-ConsoleClient.csproj" ShortName="2003-CO.CSP" Source="..\ConsoleClient\2003-ConsoleClient.csproj" />
                 <File Id="_2005_ConsoleClient.csproj" Name="2005-ConsoleClient.csproj" ShortName="2005-CO.CSP" Source="..\ConsoleClient\2005-ConsoleClient.csproj" />
                 <File Id="App.ico" Name="App.ico" ShortName="APP.ICO" Source="..\ConsoleClient\App.ico" />
                 <File Id="AssemblyInfo.cs_1" Name="AssemblyInfo.cs" ShortName="ASSEMBL.CS" Source="..\ConsoleClient\AssemblyInfo.cs" />
                 <File Id="Main.cs" Name="Main.cs" ShortName="MAIN.CS" Source="..\ConsoleClient\Main.cs" />
                 <File Id="Makefile" Name="Makefile" ShortName="MAKEFIL" Source="..\ConsoleClient\Makefile" />
+                <File Id="Reference.targets_2" Name="Reference.targets" ShortName="REFEREN.TAR" Source="..\ConsoleClient\InstallerTargets\Reference.targets" />
               </Component>
             </Directory>
+            <Component Id="ExampleSolution" Guid="695E63C7-9CB4-4AB2-BC0C-1DBE8E25407A">
+              <File Id="Example.sln" Name="Example.sln" ShortName="EXAMPLE.SLN" Source="ExampleSolution\Example.sln" />
+            </Component>
           </Directory>
         </Directory>
       </Directory>
@@ -93,9 +93,10 @@
         <ComponentRef Id="HelpFiles" />
       </Feature>
       <Feature Id="Examples" Title="Example Source Files" Description="The source code for the included examples." Level="1000">
-        <ComponentRef Id="Example"/>
-        <ComponentRef Id="VB.Example"/>
-        <ComponentRef Id="ConsoleClient"/>
+        <ComponentRef Id="Example" />
+        <ComponentRef Id="VB.Example" />
+        <ComponentRef Id="ConsoleClient" />
+        <ComponentRef Id="ExampleSolution"/>
       </Feature>
     </Feature>
     <UIRef Id="WixUI_Mondo" />
