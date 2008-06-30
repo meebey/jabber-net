@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCompany("Cursive Systems, Inc.")]
 [assembly: AssemblyProduct("jabber-net")]
 [assembly: AssemblyCopyright("Copyright (c) Cursive, Inc. 2000-2008")]
-[assembly: AssemblyVersion("2.0.0.613")]
+[assembly: AssemblyVersion("2.1.0.702")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: CLSCompliant(true)]
 [assembly: AssemblyKeyFile("../../jabbernet.key")]
