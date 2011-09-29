@@ -99,7 +99,11 @@ namespace jabber.connection
             {
                 try
                 {
+#if ZLIB_NET
                     return bedrock.io.ZlibStream.Supported;
+#else
+                    return false;
+#endif
                 }
                 catch
                 {

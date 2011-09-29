@@ -764,7 +764,11 @@ namespace bedrock.net
         /// </summary>
         public override void StartCompression()
         {
+#if ZLIB_NET
             m_stream = new bedrock.io.ZlibStream(m_stream, ComponentAce.Compression.Libs.zlib.zlibConst.Z_FULL_FLUSH);
+#else
+            throw new NotSupportedException();
+#endif
         }
 
         /// <summary>

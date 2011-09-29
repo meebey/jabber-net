@@ -1342,7 +1342,11 @@ namespace jabber.connection
                     break;
                 case "failure":
                     CompressionFailure fail = tag as CompressionFailure;
+#if ZLIB_NET
                     FireOnError(new bedrock.io.CompressionFailedException(fail.Error));
+#else
+                    FireOnError(new IOException(fail.Error));
+#endif
                     return;
                 }
 
