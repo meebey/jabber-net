@@ -346,6 +346,26 @@ namespace jabber.client
                 OnRosterEnd(this);
         }
 
+        public void Add(JID jid)
+        {
+            Item item = this[jid];
+            // only create a new roster item if it does not already exist
+            if (item == null) {
+                RosterIQ iq = new RosterIQ(m_stream.Document);
+                iq.Type = IQType.set;
+                Roster r = iq.Instruction;
+                item = r.AddItem();
+                item.JID = jid;
+                Write(iq);
+            }
+
+            // subscribe to presence
+            Presence sub = new Presence(m_stream.Document);
+            sub.To = jid;
+            sub.Type = PresenceType.subscribe;
+            Write(sub);
+        }
+
         /// <summary>
         /// Allows the subscription request and sends a subscribed to the user.
         /// </summary>
@@ -355,17 +375,19 @@ namespace jabber.client
         public void ReplyAllow(Presence pres)
         {
             Debug.Assert(pres.Type == PresenceType.subscribe);
+            Allow(pres.From);
+        }
+
+        public void Allow(JID jid)
+        {
             Presence reply = new Presence(m_stream.Document);
-            reply.To = pres.From;
+            reply.To = jid;
             reply.Type = PresenceType.subscribed;
             Write(reply);
 
             if (m_autoSubscribe)
             {
-                Presence sub = new Presence(m_stream.Document);
-                sub.To = pres.From;
-                sub.Type = PresenceType.subscribe;
-                Write(sub);
+                Add(jid);
             }
         }
 
@@ -378,8 +400,13 @@ namespace jabber.client
         public void ReplyDeny(Presence pres)
         {
             Debug.Assert(pres.Type == PresenceType.subscribe);
+            Deny(pres.From);
+        }
+
+        public void Deny(JID jid)
+        {
             Presence reply = new Presence(m_stream.Document);
-            reply.To = pres.From;
+            reply.To = jid;
             reply.Type = PresenceType.unsubscribed;
             Write(reply);
         }
@@ -417,7 +444,7 @@ C: <iq from='juliet@example.com/balcony' type='set' id='delete_1'>
             RosterIQ iq = new RosterIQ(m_stream.Document);
             iq.Type = IQType.set;
             Roster r = iq.Instruction;
-            r.AppendChild(item);
+            r.AddChild(item);
             Write(iq);  // ignore response
         }
 
