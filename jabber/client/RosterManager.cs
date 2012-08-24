@@ -284,18 +284,11 @@ namespace jabber.client
                 }
                 break;
             case PresenceType.subscribed:
-                // This is the new ack case.
-                Presence sub_ack = new Presence(m_stream.Document);
-                sub_ack.To = pres.From;
-                sub_ack.Type = PresenceType.subscribe;
-                Write(sub_ack);                
+                // the contact has given us permission to see presence updates
                 break;
             case PresenceType.unsubscribe:
-                // ack.  we'll likely get an unsubscribed soon, anyway.
-                Presence un_ack = new Presence(m_stream.Document);
-                un_ack.To = pres.From;
-                un_ack.Type = PresenceType.unsubscribed;
-                Write(un_ack);
+                // the contact does not wish to see our presence updates anymore
+                // that's fine, who cares?
                 break;
             case PresenceType.unsubscribed:
                 bool remove = true;
@@ -304,6 +297,7 @@ namespace jabber.client
 
                 if (remove)
                     Remove(pres.From);
+                // the contact has taken away our permission to see presence updates
                 break;
             }
         }
